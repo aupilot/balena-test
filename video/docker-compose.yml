@@ -1,0 +1,8 @@
+version: '1.0'
+services:
+  cam1:
+    image: bh.cr/g_kirill_makukhin/video
+    network_mode: host
+#  cam2:
+#    build: ./frontend
+#    network_mode: host
