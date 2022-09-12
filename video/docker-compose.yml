@@ -1,8 +1,22 @@
-version: '1.0'
+version: '2.1'
+networks: {}
+volumes:
+  resin-data: {}
 services:
   cam1:
-    image: bh.cr/g_kirill_makukhin/video
+#    image: bh.cr/g_kirill_makukhin/video/1392022d649c839f389ccf9591b74ee8
+    build: ./cam1
+    privileged: true
+    tty: true
+    restart: always
     network_mode: host
-#  cam2:
-#    build: ./frontend
-#    network_mode: host
+    volumes:
+      - 'resin-data:/data'
+  cam2:
+    build: ./cam2
+    privileged: true
+    tty: true
+    restart: always
+    network_mode: host
+    volumes:
+      - 'resin-data:/data'
